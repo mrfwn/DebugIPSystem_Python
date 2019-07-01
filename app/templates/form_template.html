@@ -1,0 +1,86 @@
+{% extends "tokens_template.html" %}
+
+
+{% block form %}
+ 
+<form class="meu-form" method="get" action="http://127.0.0.1:5000/home?id_check_l1=teste1&id_check_l3=teste2">
+    {{ form.csrf_token }}
+    <div class="form-row align-items-top">
+            <span><h3> FABRIC1</h3></span>
+        <div class="col-md-4">
+            
+                <div class="col-auto my-1">
+                    <div class="custom-control custom-checkbox mr-sm-2">
+                        <input type="checkbox" class="custom-control-input" name="id_check_l1" value="1" id="id_check_l1">
+                        <label class="custom-control-label" for="id_check_l1">LEAF1</label>
+                    </div>
+                </div>
+                <div class="col-auto my-1">
+                    <div class="custom-control custom-checkbox mr-sm-2">
+                        <input type="checkbox" class="custom-control-input" name="id_check_l3" value="3" id="id_check_l3">
+                        <label class="custom-control-label" for="id_check_l3">LEAF3</label>
+                    </div>
+                </div>
+                <div class="col-auto my-1">
+                        <div class="custom-control custom-checkbox mr-sm-2">
+                            <input type="checkbox" class="custom-control-input" id="id_check_l5">
+                            <label class="custom-control-label" for="id_check_l5">LEAF5</label>
+                        </div>
+                    </div>
+                    <div class="col-auto my-1">
+                            <div class="custom-control custom-checkbox mr-sm-2">
+                                <input type="checkbox" class="custom-control-input" id="id_check_l7">
+                                <label class="custom-control-label" for="id_check_l7">LEAF7</label>
+                            </div>
+                        </div>
+                        <div class="col-auto my-1">
+                                <div class="custom-control custom-checkbox mr-sm-2">
+                                    <input type="checkbox" class="custom-control-input" id="id_check_s1">
+                                    <label class="custom-control-label" for="id_check_s1">SPINE1</label>
+                                </div>
+                            </div>
+
+        </div>
+        <span><h3> FABRIC2</h3></span>
+        <div class="col-md-4">
+               
+                <div class="col-auto my-1">
+                        <div class="custom-control custom-checkbox mr-sm-2">
+                            <input type="checkbox" class="custom-control-input" id="id_check_l2">
+                            <label class="custom-control-label" for="id_check_l2">LEAF2</label>
+                        </div>
+                    </div>
+                    <div class="col-auto my-1">
+                        <div class="custom-control custom-checkbox mr-sm-2">
+                            <input type="checkbox" class="custom-control-input" id="id_check_l4">
+                            <label class="custom-control-label" for="id_check_l4">LEAF4</label>
+                        </div>
+                    </div>
+                    <div class="col-auto my-1">
+                            <div class="custom-control custom-checkbox mr-sm-2">
+                                <input type="checkbox" class="custom-control-input" id="id_check_l6">
+                                <label class="custom-control-label" for="id_check_l6">LEAF6</label>
+                            </div>
+                        </div>
+                        <div class="col-auto my-1">
+                                <div class="custom-control custom-checkbox mr-sm-2">
+                                    <input type="checkbox" class="custom-control-input" id="id_check_l8">
+                                    <label class="custom-control-label" for="id_check_l8">LEAF8</label>
+                                </div>
+                            </div>
+                            <div class="col-auto my-1">
+                                    <div class="custom-control custom-checkbox mr-sm-2">
+                                        <input type="checkbox" class="custom-control-input" id="id_check_s2">
+                                        <label class="custom-control-label" for="id_check_s2">SPINE2</label>
+                                    </div>
+                                </div>
+
+            </div>
+
+    <div class="col-auto my-1">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+    </div>
+</form>
+
+{% endblock form %}

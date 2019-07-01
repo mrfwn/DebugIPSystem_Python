@@ -1,0 +1,40 @@
+{% extends "base_template.html" %}
+
+{% block conteudo %}
+<div class="col-md-12 py-2 px-md-3">
+    <form method="POST" class="col-sm-8" >
+        {{ form.csrf_token }}        
+            <div class="form-group row  ">
+                <!--<label class="col-form-label"><h4>IP:</h4></label>
+                <div class="col-sm-3">
+                    {{form.searchIP(class="form-control") }}
+                    {%if form.errors.searchIP %}
+                    <div class="alert alert-danger">
+                        {{form.errors.searchIP}}
+                    </div>
+                    {% endif %}
+                </div> -->         
+                <label class="col-form-label"><h4>Name:</h4></label>
+                <div class="col-sm-3">
+                    {{form.searchName(class="form-control") }}
+                    {%if form.errors.searchName %}
+                    <div class="alert alert-danger">
+                        {{form.errors.searchName}}
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{form.submit(class="btn btn-primary")}}
+                </div>
+            </div>      
+      
+    </form>
+</div>
+   
+{% block flows %}
+
+{% endblock flows %}
+
+{% endblock conteudo %}
+
+

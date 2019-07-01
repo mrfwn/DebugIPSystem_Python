@@ -1,0 +1,209 @@
+{% extends "flows_template.html" %}
+
+{% block flows %}
+   
+<ul class="nav nav-pills nav-stacked anyClass">        
+<div class="line_row  ">  
+             
+        {% for i in topology %}
+                {% for j in i %}
+                        {% for k in j %}
+                                <div class="row">
+                                        {% set a = idGen() %}
+                                        <button type="button" class="btn btn-secondary content col-sm-1" data-toggle="modal" data-target="#siganl{{a}}">{{k["nameSrc"]}}</button>
+                                        <div class="modal fade" id="siganl{{a}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                                        <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                        <h5 class="modal-title" id="exampleModalCenterTitle">SINAL {{k["nameSrc"]}}</h5>      
+                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                        <div class="container-fluid">      
+                                                                                <div class="row">     
+                                                                                        <h6>IP Fabric Titular : {{k["mcastFabricTit"]}}</h6>
+                                                                                </div>
+                                                                                <div class="row">
+                                                                                        <h6>IP Fabric Std By : {{k["mcastFabricBy"]}} </h6>
+                                                                                </div>
+                                                                        </div>
+                                                                </div>            
+                                                        </div>
+                                                </div>
+                                        </div> 
+                                        {% set a = idGen() %}
+                                        <div class="indicator bodyseta "><span class="span1"></span><span class="span2"></span><span class="span3"></span></div>
+                                        <button type="button" class="btn btn-secondary content col-sm-1" data-toggle="modal" data-target="#gw{{a}}">{{k["nameGWsrc"]}}</button>
+                                        <div class="modal fade" id="gw{{a}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                                        <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                        <h5 class="modal-title" id="exampleModalCenterTitle">GATEWAY {{k["nameGWsrc"]}}</h5>      
+                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                        <div class="container-fluid">      
+                                                                                <div class="row">     
+                                                                                        <h6>IP Controle : {{k["ipCtrlGWsrc"]}}</h6>
+                                                                                </div>
+                                                                                <div class="row">
+                                                                                        <h6>Slote : {{k["slotGWsrc"]}} </h6>
+                                                                                </div>
+                                                                                <div class="row">
+                                                                                        <h6>Porta: {{k["portGWsrc"]}} </h6>
+                                                                                </div>
+                                                                                <div class="row">
+                                                                                        <h6>Canal: {{k["channelGWsrc"]}} </h6>
+                                                                                </div>
+                                                                        </div>
+                                                                </div>            
+                                                        </div>
+                                                </div>
+                                        </div>
+                                        {% set a = idGen() %}
+                                        <div class="indicator bodyseta"><span class="span1"></span><span class="span2"></span><span class="span3"></span></div>
+                                        <button type="button" class="btn btn-secondary content col-sm-1" data-toggle="modal" data-target="#leaf{{a}}">{{k["nameSwSrcTit"]}}</button>
+                                        <div class="modal fade" id="leaf{{a}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                                        <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                        <h5 class="modal-title" id="exampleModalCenterTitle">LEAF</h5>      
+                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                        <div class="container-fluid">      
+                                                                                <div class="row">     
+                                                                                        <h6>SWITCH SRC FABRIC TIT : {{k["nameSwSrcTit"]}}</h6>
+                                                                                </div>
+                                                                                <div class="row">
+                                                                                        <h6>SWITCH SRC FABRIC SBY : {{k["nameSwSrcSby"]}}</h6>
+                                                                                </div>
+                                                                                <div class="row">
+                                                                                        <h6>PORTA DO SRC TIT : {{k["namePortSrcTit"]}}</h6>
+                                                                                </div> 
+                                                                                <div class="row">
+                                                                                        <h6>PORTA DO SRC SBY: {{k["nameSwSrcSby"]}}</h6>
+                                                                                </div>                                        
+                                                                        </div>
+                                                                </div>            
+                                                        </div>
+                                                </div>
+                                        </div>
+                                        <div class="indicator bodyseta"><span class="span1"></span><span class="span2"></span><span class="span3"></span></div>
+                                        <button type="button" class="btn btn-secondary content col-sm-1" data-toggle="modal" data-target="#spine{{a}}">{{k["nameSwRPTit"]}}</button>
+                                        <div class="modal fade" id="spine{{a}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                                        <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                        <h5 class="modal-title" id="exampleModalCenterTitle">LEAF</h5>      
+                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                        <div class="container-fluid">      
+                                                                                <div class="row">     
+                                                                                        <h6>SWITCH SRC FABRIC TIT : {{k["nameSwRPTit"]}}</h6>
+                                                                                </div>
+                                                                                <div class="row">
+                                                                                        <h6>SWITCH SRC FABRIC SBY : {{k["nameSwRPSby"]}}</h6>
+                                                                                </div>
+                                                                                <div class="row">
+                                                                                        <h6>PORTA DO SRC : {{k["namePortSrcTit"]}}</h6>
+                                                                                </div>                                        
+                                                                        </div>
+                                                                </div>            
+                                                        </div>
+                                                </div>
+                                        </div>
+                                        <div class="indicator bodyseta"><span class="span1"></span><span class="span2"></span><span class="span3"></span></div>
+                                        <button type="button" class="btn btn-secondary content col-sm-1" data-toggle="modal" data-target="#leafdst{{a}}">{{k["nameSwDstTit"]}}</button>
+                                        <div class="modal fade" id="leafdst{{a}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                                        <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                        <h5 class="modal-title" id="exampleModalCenterTitle">LEAF</h5>      
+                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                        <div class="container-fluid">      
+                                                                                <div class="row">     
+                                                                                        <h6>SWITCH DST FABRIC TIT : {{k["nameSwDstTit"]}}</h6>
+                                                                                </div>
+                                                                                <div class="row">
+                                                                                        <h6>SWITCH DST FABRIC SBY : {{k["nameSwDstSby"]}}</h6>
+                                                                                </div>
+                                                                                <div class="row">
+                                                                                        <h6>PORTA DO DST TIT : {{k["namePortDstTit"]}}</h6>
+                                                                                </div>    
+                                                                                <div class="row">
+                                                                                        <h6>PORTA DO DST SBY : {{k["namePortDstSby"]}}</h6>
+                                                                                </div>                                     
+                                                                        </div>
+                                                                </div>            
+                                                        </div>
+                                                </div>
+                                        </div>
+                                        <div class="indicator bodyseta"><span class="span1"></span><span class="span2"></span><span class="span3"></span></div>
+                                        <button type="button" class="btn btn-secondary content col-sm-1" data-toggle="modal" data-target="#gwdst{{a}}">{{k["nameGWdst"]}}</button>
+                                        <div class="modal fade" id="gwdst{{a}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                                        <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                        <h5 class="modal-title" id="exampleModalCenterTitle">GATEWAY {{k["nameGWdst"]}}</h5>      
+                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                        <div class="container-fluid">      
+                                                                                <div class="row">     
+                                                                                        <h6>IP Controle : {{k["ipCtrlGWdst"]}}</h6>
+                                                                                </div>
+                                                                                <div class="row">
+                                                                                        <h6>Slote : {{k["slotGWdst"]}} </h6>
+                                                                                </div>
+                                                                                <div class="row">
+                                                                                        <h6>Porta: {{k["portGWdst"]}} </h6>
+                                                                                </div>
+                                                                                <div class="row">
+                                                                                        <h6>Canal: {{k["channelGWdst"]}} </h6>
+                                                                                </div>
+                                                                        </div>
+                                                                </div>            
+                                                        </div>
+                                                </div>
+                                        </div>
+                                        <div class="indicator bodyseta"><span class="span1"></span><span class="span2"></span><span class="span3"></span></div>
+                                        <button type="button" class="btn btn-secondary content col-sm-1" data-toggle="modal" data-target="#signaldst{{a}}">{{k["nameDst"]}}</button>
+                                        <div class="modal fade" id="signaldst{{a}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                                        <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                        <h5 class="modal-title" id="exampleModalCenterTitle">SINAL {{k["nameDst"]}}</h5>      
+                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                        <div class="container-fluid">      
+                                                                                <div class="row">     
+                                                                                        <h6>IP Fabric Titular : {{k["mcastFabricTit"]}}</h6>
+                                                                                </div>
+                                                                                <div class="row">
+                                                                                        <h6>IP Fabric Std By : {{k["mcastFabricBy"]}} </h6>
+                                                                                </div>
+                                                                        </div>
+                                                                </div>            
+                                                        </div>
+                                                </div>
+                                        </div>                
+                                </div>
+                        {% endfor %}
+                {% endfor %}
+        {% endfor %}    
+                         
+      
+             
+</div>
+</ul>
+<div class="row col-sm-12">
+        <h3 class="col-sm-3">Quantidade de Rotas: {{rotas["total"]}}</h3>
+        <h3 class="col-sm-3">Rotas de Vídeo: {{rotas["video"]}}</h3>
+        <h3 class="col-sm-3">Rotas de Áudio: {{rotas["audio"]}}</h3>
+</div>
+{% endblock flows %}

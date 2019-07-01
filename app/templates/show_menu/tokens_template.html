@@ -1,0 +1,97 @@
+{% extends "show_template.html" %}
+
+{% block show %}
+        <style type="text/css">
+            
+                body {
+                    padding:0px;
+                    margin:0px;
+                }
+         
+                #menu ul {
+                    padding:0px;
+                    margin:0px;
+                    float: left;
+                    width: 100%;
+                    background-color:#EDEDED;
+                    list-style:none;
+                    font:150% Tahoma;
+                }
+         
+                #menu ul li { display: inline; }
+         
+                #menu ul li a {
+                    background-color:#EDEDED;
+                    color: #333;
+                    text-decoration: none;
+                    border-bottom:3px solid #EDEDED;
+                    padding: 2px 10px;
+                    float:left;
+                }
+         
+                #menu ul li a:hover {
+                    background-color:#D6D6D6;
+                    color: #6D6D6D;
+                    border-bottom:3px solid #EA0000;
+                }
+                label{
+                    padding-right:8px;
+                    padding-left: 2px
+                }
+                input[type=checkbox]{
+                    /* Double-sized Checkboxes */
+                    -ms-transform: scale(2); /* IE */
+                    -moz-transform: scale(2); /* FF */
+                    -webkit-transform: scale(2); /* Safari and Chrome */
+                    -o-transform: scale(2); /* Opera */
+                    transform: scale(1.5);
+                    padding: 10px; 
+                }
+            
+            </style>
+
+<form class="col-sm-12" method="POST" action="{{ url_for('token',show = show,sub_show = sub_show) }}">
+    {{ form.csrf_token }}
+    <div class="form-group row ">
+            <div class=" row">
+                <div id = menu class="col-auto">
+                    {{form.example(class="menu") }}
+                </div>
+                <div class="form-group">
+                    {{form.submit(class="btn btn-primary")}}
+                </div>
+            </div>
+            
+    </div>
+   
+</form>
+
+<div>
+    <div class="accordion" id="accordionExample">
+        {% for indice,item in enumerate(results) %}        
+                <div class="card">
+                  <div class="card-header" id="heading{{indice}}">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse{{indice}}" aria-expanded="true" aria-controls="collapse{{indice}}">
+                        {% if selection[indice]==11 or selection[indice]==12 %}
+                            SPINE {{selection[indice]%10}}
+                        {% else %}
+                            LEAF {{selection[indice]}}
+                        {% endif %}
+                      </button>
+                    </h2>
+                  </div>
+              
+                  <div id="collapse{{indice}}" class="collapse" aria-labelledby="heading{{indice}}" data-parent="#accordionExample">
+                    <div class="card-body">
+                        {% autoescape false %}
+                            {{item}}
+                        {% endautoescape %}
+                    </div>
+                  </div>
+                </div>
+        {% endfor %}
+    </div>
+</div>   
+
+{% endblock show %}

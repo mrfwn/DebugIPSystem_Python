@@ -1,0 +1,61 @@
+{% extends "base_template.html" %}
+
+{% block conteudo %}
+<div class="row ">
+<div class="menu col-md-2">
+        <div id="jquery-accordion-menu" class="jquery-accordion-menu ">
+            <ul>
+                <li class="active"><a href="#"><i class="fa fa-home"></i>SHOW </a></li>
+                <li><a href="{{ url_for('token',show = 'token',sub_show = 'token')}}">TOKENS</a></li>
+
+                <li><a href="{{ url_for('show')}}">IGMP </a>
+                    <ul class="submenu">
+                        <li><a href="{{ url_for('token',show = 'igmp',sub_show = 'groups')}}">GROUPS </a></li>
+                        <li><a href="{{ url_for('token',show = 'igmp',sub_show = 'snooping')}}">SNOOPING </a></li>
+                        <li><a href="{{ url_for('token',show = 'igmp',sub_show = 'route')}}">ROUTE </a></li>
+                        <li><a href="{{ url_for('token',show = 'igmp',sub_show = 'interface')}}">INTERFACE </a></li>
+                    </ul>
+                </li>
+
+                <li><a href="{{ url_for('show')}}">PIM </a>
+                    <ul class="submenu">
+                        <li><a href="{{ url_for('token',show = 'pim',sub_show = 'route')}}">ROUTE </a></li>
+                        <li><a href="{{ url_for('token',show = 'pim',sub_show = 'neighbor')}}">NEIGHBOR </a></li>
+                        <li><a href="{{ url_for('token',show = 'pim',sub_show = 'rp')}}">RP </a></li>
+                        <li><a href="{{ url_for('token',show = 'pim',sub_show = 'interface')}}">INTERFACE </a></li>
+                    </ul>
+                </li>
+
+                <li><a href="{{ url_for('show')}}">ROUTES </a>
+                    <ul class="submenu">
+                        <li><a href="{{ url_for('token',show = 'routes',sub_show = 'mroute')}}">MROUTE </a></li>
+                        <li><a href="{{ url_for('token',show = 'routes',sub_show = 'route')}}">ROUTE </a></li>
+                    </ul>
+                </li>
+
+                <li><a href="{{ url_for('show')}}">INTERFACE </a>
+                    <ul class="submenu">
+                        <li><a href="{{ url_for('token',show = 'interface',sub_show = 'information')}}">INFORMATION </a></li>
+                        <li><a href="{{ url_for('token',show = 'interface',sub_show = 'status')}}">STATUS </a></li>
+                        <li><a href="{{ url_for('token',show = 'interface',sub_show = 'transceiver')}}">TRANSCEIVER </a></li>
+                        <li><a href="{{ url_for('token',show = 'interface',sub_show = 'counters')}}">COUNTERS </a></li>
+                    </ul>
+                </li>
+
+                <li><a href="{{ url_for('show')}}">NBM FLOWS</a>
+                    <ul class="submenu">
+                        <li><a href="{{ url_for('token',show = 'nbm',sub_show = 'all')}}">ALL </a></li>
+                        <li><a href="{{ url_for('token',show = 'nbm',sub_show = 'active')}}">ACTIVE </a></li>
+                    </ul>
+                </li>                
+            </ul>
+        </div>    
+    </div> 
+    
+
+<div class="col-md-8">
+        {% block show %}
+        {% endblock show %}
+    </div>
+</div>
+{% endblock conteudo %}
