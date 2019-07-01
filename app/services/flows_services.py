@@ -312,7 +312,7 @@ class Topology():
             command_igmp = "show ip igmp route " + ip
             routesPim = []
             routesIgmp = []
-            auxPim  = self.cli_show(command_pim,self.devices[i],"admin","1234QWer")  
+            auxPim  = self.cli_show(command_pim,self.devices[i],"login","password")  
             if "TABLE_addr" in auxPim["ins_api"]["outputs"]["output"]["body"]["TABLE_vrf"]["ROW_vrf"]:
                 if len(auxPim["ins_api"]["outputs"]["output"]["body"]["TABLE_vrf"]["ROW_vrf"]["TABLE_addr"]["ROW_addr"]) == 2:            
                     routesPim = []
@@ -356,7 +356,7 @@ class Topology():
                                 routePim["rpfNbr"] =  a["TABLE_rpf"]["ROW_rpf"]["rpf-nbr-addr"]
                                 routesPim.append(routePim)  
             if int(i)>1:                
-                auxIgmp  = self.cli_show(command_igmp,self.devices[i],"admin","1234QWer")
+                auxIgmp  = self.cli_show(command_igmp,self.devices[i],"login","password")
                 aux = auxIgmp["ins_api"]["outputs"]["output"]["body"]["TABLE_vrf"]["ROW_vrf"]["TABLE_group"]["ROW_group"]
                 routesIgmp = []
                 for k in range(len(aux)):
