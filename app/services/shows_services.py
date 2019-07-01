@@ -2,16 +2,16 @@ import requests
 import json
 
 devices = {
-        "1":"10.175.254.13",
-        "2":"10.175.254.14",
-        "3":"10.175.254.15",
-        "4":"10.175.254.16",
-        "5":"10.175.254.17",
-        "6":"10.175.254.18",
-        "7":"10.175.254.19",
-        "8":"10.175.254.20",
-        "11":"10.175.254.11",
-        "12":"10.175.254.12"
+        "1":"SW1",
+        "2":"SW2",
+        "3":"SW3",
+        "4":"SW4",
+        "5":"SW5",
+        "6":"SW6",
+        "7":"SW7",
+        "8":"SW8",
+        "11":"SW9",
+        "12":"SW10"
     }
 
 
@@ -56,7 +56,7 @@ def cli_show(show_command, hostname, username, password):
 def selection_device(selection,command):
     results = []
     for device in selection:
-        aux = cli_show(command,devices[str(device)],'admin','1234QWer')
+        aux = cli_show(command,devices[str(device)],'login','password')
         results.append(aux['ins_api']['outputs']['output']['body'].replace( '\n','<br />'))
         
     return results
